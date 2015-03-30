@@ -1,5 +1,5 @@
 development:
-  adapter: mysql2
+  adapter: mysql
   encoding: utf8
   database: running_status
   pool: 5
@@ -7,7 +7,7 @@ development:
   password: root 
 
 test:
-  adapter: mysql2
+  adapter: mysql
   encoding: utf8
   database: running_status_test
   pool: 5
@@ -16,9 +16,11 @@ test:
 
 
 production:
-  adapter: mysql2
+  adapter: mysql
   encoding: utf8
-  database: running_status
+  database: voyagest_status
   pool: 5
-  username: root
-  password: root 
+  username: voyagest_root
+  password: hoppers123
+  port: 3306
+

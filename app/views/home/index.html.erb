@@ -2,7 +2,7 @@
   <div class="navbar navbar-inner">
     <ul class="nav nav-list nav-collapse collapse">
         <li>
-            <%= form_tag( url: root_path ) do  %>
+            <%= form_tag(trip_details_path ) do  %>
              <br />
               <%= text_field_tag :tracking_code, "", :autofocus => true, :placeholder => "Enter Your Tracking No:" %>
               <%= submit_tag "Get Status", class: "btn btn-info" %>

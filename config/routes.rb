@@ -52,11 +52,12 @@ Rails.application.routes.draw do
     get 'stop_tracking_trip' => "trips#stop_tracking_trip", :as => :stop_tracking_trip
   end
   
-  root :to => 'home#index'
+  root 'home#index'
   get '/user' => "home#index", :as => 'user'
   get '/validate_authentication' => "tracking#validate_authentication", :as => 'validate_authentication'
   get '/get_trip' => "tracking#get_trip", :as => 'get_trip'
   post '/save_position' => "tracking#save_position", :as => 'save_position'
+  post "/trip_details" => "home#trip_details", :as => "trip_details"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
