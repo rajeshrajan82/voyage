@@ -1,0 +1,30 @@
+<div class="navbar navbar-inner">
+  <h5><i class="icon-plus"></i>New Route</h5>
+  <ul class="nav nav-list">
+    <%= form_for(@route, :url => create_route_path(:vid => @vehicle.uuid)) do |f| %>
+        <% if @route.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@route.errors.count, "error") %> prohibited this vehicle from being saved:</h2>
+            <ul>
+            <% @route.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div id="msg"></div>
+        <div id="messageDiv">
+          <%- flash.each do |name, msg| -%>
+            <%= content_tag :div, msg, :id => "flash_#{name}", :class=> "alert" if msg.is_a?(String) %>
+          <%- end -%>
+        </div>
+        <div class="control-group">
+          <%= f.text_field :origin, :placeholder => 'From Station*' %>
+        </div>
+        <div class="control-group">
+          <%= f.text_field :destination, :placeholder => "To Station*" %>
+        </div>
+        <%= f.submit "Create", :class => "btn btn-info", :id => "route" %>
+    <% end %>
+  </ul>
+</div>

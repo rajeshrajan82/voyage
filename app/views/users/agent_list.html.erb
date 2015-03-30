@@ -1,0 +1,57 @@
+<div class="span3" id="sidebar">
+  <% if @user != nil && @user.id != nil %>
+    <%= render "users/registrations/edit" %>
+  <% else %>
+    <%= render "users/registrations/new" %>
+  <% end %>
+</div>
+
+<div class="span9" id="content">
+  <div class="row-fluid">
+    <div id="breadcrumb">
+      <ul class="breadcrumb">
+        <li><%= link_to "Home", root_path %><span class="divider">/</span></li>
+        <% if current_user.user_type == User::ADMIN %>
+          <li><%= link_to "Customers", customers_path %><span class="divider">/</span></li>
+        <% end %> 
+        <li class="active">Agents</li>
+      </ul>
+    </div>
+    <div class="block">
+      <div class="navbar navbar-inner block-header">
+        <table class="table table-bordered table-hover">
+          <caption>Agents of <%= @customer.travels_name %></caption>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @agents.each do |agent| %>
+            <tr>
+              <td><%= agent.travels_name %></td>
+              <td><%= agent.email %></td>
+              <td class="text-center">
+                  <%if agent.status?  %>
+                    <%= icon_text("Active", "icon-thumbs-up") %> |
+                    <%= link_to icon_text("Inactivate","icon-thumbs-down"), change_status_path(:id => agent.uuid) %>
+                  <% else %>
+                    <%= icon_text("Inactive", "icon-thumbs-down") %> |
+                    <%= link_to icon_text("Activate", "icon-thumbs-up"), change_status_path(:id => agent.uuid) %>
+                  <% end %>
+              </td>
+              <td class="text-center delete">
+                <%= link_to icon_text("Edit","icon-pencil"), edit_agent_path(:id => agent.uuid) %>
+                &nbsp;|&nbsp;<%= link_to icon_text("Delete","icon-remove"), delete_agent_path(:id => agent.uuid), :class => "delete-confirm" %>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

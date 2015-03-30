@@ -1,0 +1,8 @@
+<% if @customer.nil? %>
+  <% url = create_customer_path %>
+  <% user_type = "New Customer" %>
+<% else %>
+  <% url = create_agent_path(:id => @customer.uuid) %>
+  <% user_type = "New Agent" %>
+<% end %>
+<%= render "users/registrations/form", :user_type => user_type, :url => url, :submit_value => "Create", :id_value => "signup", :change_pass => false %>

@@ -1,0 +1,168 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *= require_tree .
+ *= require_self
+ */
+
+.block {
+	border: 1px solid #ccc;
+	background: white;
+	margin: 0em 0em;
+	border-radius: 4px;
+}
+
+.block .block-content {
+	margin: 1em;
+	min-height: .25em;
+}
+
+.block .block-header {
+	margin-bottom: 0px;
+	border-right: none;
+	border-left: none;
+        border-top: 1px solid #fff;
+        border-radius: 4px 4px 0px 0px;
+}
+.block .block-header div {
+	padding-top: 10px;
+}
+
+#dvMap img { 
+  max-width: none;
+}
+
+#dvMap label { 
+  width: auto; display:inline; 
+} 
+
+/** Side Bar **/
+.bs-docs-sidenav {
+  margin-bottom: 20px;
+  padding: 0;
+  background-color: #fff;
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
+  -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.065);
+     -moz-box-shadow: 0 1px 4px rgba(0,0,0,.065);
+          box-shadow: 0 1px 4px rgba(0,0,0,.065);
+}
+.bs-docs-sidenav > li > a {
+  display: block;
+  width: 190px \9;
+  margin: 0 0 -1px;
+  padding: 8px 14px;
+  border: 1px solid #e5e5e5;
+}
+.bs-docs-sidenav > li:first-child > a {
+  -webkit-border-radius: 6px 6px 0 0;
+     -moz-border-radius: 6px 6px 0 0;
+          border-radius: 6px 6px 0 0;
+}
+.bs-docs-sidenav > li:last-child > a {
+  -webkit-border-radius: 0 0 6px 6px;
+     -moz-border-radius: 0 0 6px 6px;
+          border-radius: 0 0 6px 6px;
+}
+.bs-docs-sidenav > .active > a {
+  position: relative;
+  z-index: 2;
+  padding: 9px 15px;
+  border: 0;
+  text-shadow: 0 1px 0 rgba(0,0,0,.15);
+  -webkit-box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
+     -moz-box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
+          box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
+}
+/* Chevrons */
+.bs-docs-sidenav .icon-chevron-right {
+  float: right;
+  margin-top: 2px;
+  margin-right: -6px;
+  opacity: .25;
+}
+.bs-docs-sidenav > li > a:hover {
+  background-color: #f5f5f5;
+}
+.bs-docs-sidenav a:hover .icon-chevron-right {
+  opacity: .5;
+}
+.bs-docs-sidenav .active .icon-chevron-right,
+.bs-docs-sidenav .active a:hover .icon-chevron-right {
+  opacity: 1;
+}
+.bs-docs-sidenav.affix {
+  top: 40px;
+}
+.bs-docs-sidenav.affix-bottom {
+  position: absolute;
+  top: auto;
+  bottom: 270px;
+}
+/*End Side Bar*/
+
+/*Table Stripes*/
+
+.table-bordered tbody > tr:nth-child(even) > td, .table-bordered tbody > tr:nth-child(even) > th {
+    background-color: #E6E7EB;
+}
+
+.table thead th {
+    background-color: #d9edf7;
+}
+
+.table caption {
+    padding: 5px;
+    font-weight: bold;
+    text-align: left;
+}
+
+/*End*/
+
+.fntsz10 {
+    font-size: 10px;
+}
+
+.green {
+    color: #247722;
+}
+
+.red {
+    color : #E31515;
+}
+
+.margin-left-100 {
+    margin-left: 100px;
+}
+
+#error_explanation {
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#error_explanation  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #c00;
+    color: #fff;
+    display: none;
+}
+
+#error_explanation ul li {
+    font-size: 12px;
+    list-style: square; 
+} 

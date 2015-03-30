@@ -1,0 +1,28 @@
+<div class="navbar navbar-inner">
+  <h5><i class="icon-plus"></i>Edit Trip</h5>
+  <ul class="nav nav-list">
+    <%= form_for(@current_trip, :url => update_trip_path(:id => @current_trip.uuid, :rid => @route.uuid)) do |f| %>
+        <% if @current_trip.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@current_trip.errors.count, "error") %> prohibited this vehicle from being saved:</h2>
+            <ul>
+            <% @current_trip.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div id="msg"></div>
+        <div id="messageDiv">
+          <%- flash.each do |name, msg| -%>
+            <%= content_tag :div, msg, :id => "flash_#{name}", :class=> "alert" if msg.is_a?(String) %>
+          <%- end -%>
+        </div>
+        <div class="control-group">
+          <%= f.text_field :tracking_code, :placeholder => 'Tracking Code*' %>
+        </div>
+        <%= f.submit "Update Trip", :class => "btn btn-info", :id => "track" %>
+        <%= f.button "Stop Tracking", :class => "btn btn-danger confirm", :id => "stoptrack", :url => stop_tracking_trip_path(:id => @current_trip.uuid, :rid => @route.uuid) %>
+    <% end %>
+  </ul>
+</div>

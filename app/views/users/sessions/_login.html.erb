@@ -1,0 +1,24 @@
+<div class="navbar navbar-inner">
+  <ul class="nav nav-list nav-collapse collapse">
+    <%= form_for(:user, :url => user_session_path, :html => {:class => "form-horizontal"}) do |f| %>  
+      <fieldset>
+        <h4>Agent Login</h4>
+        <div id="msg"></div>
+        <div id="messageDiv">
+          <%- flash.each do |name, msg| -%>
+            <%= content_tag :div, msg, :id => "flash_#{name}", :class=> "alert" if msg.is_a?(String) %>
+          <%- end -%>
+        </div>
+        <div class="control-group">
+          <%= f.label :email %>
+          <%= f.email_field :email, :placeholder => "Email Address" %>
+        </div>
+        <div class="control-group">
+          <%= f.label :password %>
+          <%= f.password_field :password, :placeholder => "Password" %>
+        </div>
+        <%= f.submit "Sign in", :class => "btn btn-info", :id => "signin" %>
+      </fieldset>
+    <% end %>
+  </ul>
+</div>

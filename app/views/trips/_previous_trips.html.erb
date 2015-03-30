@@ -1,0 +1,10 @@
+<% if !@previous_trips.blank?  %>
+<div class="navbar-inner">
+    <ul class="nav nav-list bs-docs-sidenav nav-collapse collapse">
+      <h5>Previous Trips</h5>
+      <% @previous_trips.each do |prev_trip| %>
+        <li><%= link_to "<i class='icon-chevron-right'></i> #{prev_trip.created_at.strftime("%b %d, %Y")}".html_safe, "#"   %></a></li>
+      <% end %>
+    </ul>
+</div>
+<% end %>

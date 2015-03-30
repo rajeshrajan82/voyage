@@ -1,0 +1,24 @@
+<table class="table table-bordered table-hover">
+  <caption>Active Trips</caption>
+  <thead>
+    <tr>
+      <th>Vehicle No:</th>
+      <th>Route</th>
+      <th>Tracking Code</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @customer.get_inactive_routes.each do |route| %>
+      <% current_trip = route.get_current_trip %>
+      <tr>
+        <td><%= route.vehicle.v_no %></td>
+        <td><%= route.origin %> - <%= route.destination %></td>
+        <td class="text-center"><%= current_trip.tracking_code unless current_trip.nil?  %></td>
+        <td class="text-center">
+          <%= link_to icon_text("Trip","icon-map-marker"), trip_list_path(:rid => route.uuid) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

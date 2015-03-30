@@ -1,0 +1,49 @@
+<div class="span3" id="sidebar">
+  <% if @route != nil && @route.id != nil %>
+    <%= render "edit" %>
+  <% else %>
+    <%= render "new" %>
+  <% end %>
+</div>
+
+<div class="span9" id="content">
+  <div class="row-fluid">
+    <div id="breadcrumb">
+      <ul class="breadcrumb">
+        <li><%= link_to "Home", root_path %><span class="divider">/</span></li>
+        <% if current_user.user_type == User::ADMIN %>
+          <li><%= link_to "Customers", customers_path %><span class="divider">/</span></li>
+        <% end %> 
+        <li><%= link_to "Vehicles", vehicle_list_path(:id => @customer.uuid) %><span class="divider">/</span></li>
+        <li class="active">Routes</li>
+      </ul>
+    </div>
+    <div class="block">
+      <div class="navbar navbar-inner block-header">
+        <table class="table table-bordered table-hover">
+          <caption>Route of <%= @vehicle.v_no %>(<%= @customer.travels_name %>)</caption>
+          <thead>
+            <tr>
+              <th>From</th>
+              <th>To</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @routes.each do |route| %>
+            <tr>
+              <td><%= route.origin %></td>
+              <td><%= route.destination %></td>
+              <td class="text-center">
+                <%= link_to icon_text("Edit","icon-pencil"), edit_route_path(:vid => @vehicle.uuid, :rid => route.uuid) %>
+                &nbsp;|&nbsp;<%= link_to icon_text("Delete","icon-remove"), destroy_route_path(:vid => @vehicle.uuid, :rid => route.uuid), :confirm => "Are you sure to delete?" %>
+                &nbsp;|&nbsp;<%= link_to icon_text("Trip","icon-map-marker"), trip_list_path(:rid => route.uuid) %>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

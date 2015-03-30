@@ -1,0 +1,30 @@
+<div class="navbar navbar-inner">
+  <h5><i class="icon-plus"></i>Edit Vehicle</h5>
+  <ul class="nav nav-list">
+    <%= form_for(@vehicle, :url => update_vehicle_path(:id => @user.uuid, :vid => @vehicle.uuid)) do |f| %>
+        <% if @vehicle.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@vehicle.errors.count, "error") %> prohibited this vehicle from being saved:</h2>
+            <ul>
+            <% @vehicle.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div id="msg"></div>
+        <div id="messageDiv">
+          <%- flash.each do |name, msg| -%>
+            <%= content_tag :div, msg, :id => "flash_#{name}", :class=> "alert" if msg.is_a?(String) %>
+          <%- end -%>
+        </div>
+        <div class="control-group">
+          <%= f.text_field :v_no, :placeholder => 'Vehicle Number*' %>
+        </div>
+        <div class="control-group">
+          <%= f.text_field :v_name, :placeholder => "Vechile Name" %>
+        </div>
+        <%= f.submit "Update", :class => "btn btn-info", :id => "vehicle" %>
+    <% end %>
+  </ul>
+</div>

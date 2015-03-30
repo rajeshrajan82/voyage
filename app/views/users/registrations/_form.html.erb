@@ -1,0 +1,53 @@
+<div class="navbar navbar-inner">
+  <h5><i class="icon-plus"></i><%= user_type %></h5>
+  <ul class="nav nav-list">
+    <%= form_for(@user, :url => url) do |f| %>
+      <%= devise_error_messages! unless @user.nil? %>
+      <div id="msg"></div>
+      <div id="messageDiv">
+        <%- flash.each do |name, msg| -%>
+          <%= content_tag :div, msg, :id => "flash_#{name}", :class=> "alert" if msg.is_a?(String) %>
+        <%- end -%>
+      </div>
+      <div class="control-group">
+        <%= f.text_field :travels_name, :placeholder => 'Name*' %>
+      </div>
+      <div class="control-group">
+        <%= f.email_field :email, :placeholder => "Email Address*" %>
+      </div>
+      <div class="control-group">
+        <%= f.password_field :password, :placeholder => "Password*", :value => "", :autocomplete => "off" %>
+      </div>
+      <div class="control-group">
+        <%= f.password_field :password_confirmation, :placeholder => "Confirm Password*", :value => "", :autocomplete => "off" %>
+      </div>
+      <% if change_pass %>
+        <div class="control-group">
+          <%= f.password_field :current_password, :placeholder => "Current Password*", :value => "", :autocomplete => "off" %>
+        </div>
+      <% end %>
+      <div class="control-group">
+        <%= f.text_field :address, :placeholder => "Adress" %>
+      </div>
+      <div class="control-group">
+        <%= f.text_field :city, :placeholder => "City" %>
+      </div>
+      <div class="control-group">
+        <%= f.text_field :state, :placeholder => "State" %>
+      </div>
+      <div class="control-group">
+        <%= f.text_field :country, :placeholder => "Country" %>
+      </div>
+      <div class="control-group">
+        <%= f.text_field :phone, :placeholder => "Phone" %>
+      </div>
+      <div class="control-group">
+        <%= f.text_field :mobile, :placeholder => "Mobile" %>
+      </div>
+      <div class="control-group">
+        <%= f.text_field :contactus_email, :placeholder => "Contact Us Email" %>
+      </div>
+      <%= f.submit "#{submit_value}", :class => "btn btn-info", :id => "#{id_value}" %>
+    <% end %>
+  </ul>
+</div>

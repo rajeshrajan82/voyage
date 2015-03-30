@@ -1,0 +1,50 @@
+<div class="span3" id="sidebar">
+  <% if @route.status %>
+    <% if @current_trip != nil && @current_trip.id != nil %>
+      <%= render "edit" %>
+    <% else %>
+      <%= render "new" %>
+    <% end %>
+  <% end %>
+    <%= render "previous_trips" %>
+</div>
+
+<div class="span9" id="content">
+  <div class="row-fluid">
+    <div id="breadcrumb">
+      <ul class="breadcrumb">
+        <li><%= link_to "Home", root_path %><span class="divider">/</span></li>
+        <% if current_user.user_type == User::ADMIN %>
+          <li><%= link_to "Customers", customers_path %><span class="divider">/</span></li>
+        <% end %> 
+        <li><%= link_to "Vehicles", vehicle_list_path(:id => @route.user.uuid) %><span class="divider">/</span></li>
+        <li><%= link_to "Routes", route_list_path(:id => @route.user.uuid, :vid => @route.vehicle.uuid) %><span class="divider">/</span></li>
+        <li class="active">Trip</li>
+      </ul>
+    </div>
+    <div class="block">
+      <div class="navbar navbar-inner block-header">
+        <div class="muted pull-left">
+          Trip from <%= @route.origin %> to <%= @route.destination %> <% if @current_trip.id.present? %>, Tracking Code: <%= @current_trip.tracking_code  %><% end %>
+        </div>
+        <div class="pull-right">
+          <%= link_to "Refresh", root_path %>
+        </div>
+      </div>
+      <div class="block-content collapse in">
+        <div id="dvMap" style="width: 100%; height: 400px">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+ $(function() {
+				
+    refreshLocation();
+    function refreshLocation(){
+         
+            InitializeMap();
+    }
+});
+</script>

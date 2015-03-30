@@ -1,0 +1,8 @@
+<% if @customer.nil? %>
+  <% url = update_customer_path(:id => @user.uuid) %>
+  <% user_type = "Edit Customer" %>
+<% else %>
+  <% url = update_agent_path(:id => @user.uuid, :customer_id => @customer.uuid) %>
+  <% user_type = "Edit Agent" %>
+<% end %>
+<%= render "users/registrations/form", :user_type => user_type, :url => url, :submit_value => "Update", :id_value => "update", :change_pass => false %>

@@ -1,0 +1,14 @@
+<div class="navbar navbar-inner">
+  <h5><i class="icon-user"></i>Profile</h5>
+  <ul class="nav nav-list">
+    <div class="control-group">Name: <%= current_user.travels_name %> </div>
+    <div class="control-group">Email: <%= current_user.email %> </div>
+    <div class="control-group">Address: <%= current_user.address %> </div>
+    <div class="control-group">City: <%= current_user.city %> </div>
+    <div class="control-group">State: <%= current_user.state %> </div>
+    <div class="control-group">Phone: <%= current_user.phone %> </div>
+    <div class="control-group">Mobile: <%= current_user.mobile %> </div>
+    <div class="control-group">Contact Us Email: <%= current_user.contactus_email %> </div>
+    <div class="control-group"><%= button_to "Edit Profile", edit_profile_path, :class => "btn btn-info", :method => "get" %></div>
+  </ul>
+</div>
