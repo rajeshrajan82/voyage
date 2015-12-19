@@ -2,7 +2,7 @@ class TrackingController < ApplicationController
   before_filter :set_default_response_format
   
   def validate_authentication
-    @user = User.find_by_authentication_code_and_status(params[:aid], true)
+    @user = User.where(:authentication_code => params[:aid], :status => params[:aid])
     if @user.nil?
       render :json => {:status => :error, :message => "Invalid Authentication Code"}.to_json
     else
