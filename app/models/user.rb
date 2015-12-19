@@ -73,7 +73,7 @@ class User < ActiveRecord::Base
 
   class << self
     def get_customers
-      User.find_all_by_user_type_and_user_sub_type(CUSTOMER, ADMIN)
+      User.where("user_type = ? and user_sub_type = ?", CUSTOMER, ADMIN)
     end
 
     def get_active_agents(customer)
