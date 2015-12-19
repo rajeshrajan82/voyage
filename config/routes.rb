@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     post 'create_customer' => 'users#create_user', :as => :create_customer
     get 'change_status' => 'users#change_status', :as => :change_status
     get 'edit_customer' => 'users#edit_user', :as => :edit_customer
-    put 'update_customer' => 'users#update_user', :as => :update_customer
+    patch 'update_customer' => 'users#update_user', :as => :update_customer
     get 'agents' => 'users#agent_list', :as => :agents
     post 'create_agent' => 'users#create_user', :as => :create_agent
     get 'edit_agent' => 'users#edit_user', :as => :edit_agent
@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     get 'delete_agent' => 'users#delete_user', :as => :delete_agent
     get 'dashboard' => 'users#dashboard', :as => :dashboard
     get 'edit_profile' => 'users#edit_profile', :as => :edit_profile
-    put 'update_profile' => 'users#update_profile', :as => :update_profile
+    patch 'update_profile' => 'users#update_profile', :as => :update_profile
   end
   
 #  devise_for :users,
@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   as :vechile do
     get 'vehicle_list' => "vehicles#vehicle_list", :as => :vehicle_list
     post 'create_vehicle' => "vehicles#create_vehicle", :as => :create_vehicle
-    put 'update_vehicle' => "vehicles#update_vehicle", :as => :update_vehicle
+    patch 'update_vehicle' => "vehicles#update_vehicle", :as => :update_vehicle
     get 'edit_vehicle' => "vehicles#edit_vehicle", :as => :edit_vehicle
     get 'destroy_vehicle' => "vehicles#destroy_vehicle", :as => :destroy_vehicle
   end
@@ -38,7 +38,7 @@ Rails.application.routes.draw do
   as :route do
     get 'route_list' => "routes#route_list", :as => :route_list
     post 'create_route' => "routes#create_route", :as => :create_route
-    put 'update_route' => "routes#update_route", :as => :update_route
+    patch 'update_route' => "routes#update_route", :as => :update_route
     get 'edit_route' => "routes#edit_route", :as => :edit_route
     get 'destroy_route' => "routes#destroy_route", :as => :destroy_route
   end
@@ -46,7 +46,7 @@ Rails.application.routes.draw do
   as :trip do
     get 'trip_list' => "trips#trip_list", :as => :trip_list
     post 'create_trip' => "trips#create_trip", :as => :create_trip
-    put 'update_trip' => "trips#update_trip", :as => :update_trip
+    patch 'update_trip' => "trips#update_trip", :as => :update_trip
     get 'edit_trip' => "trips#edit_trip", :as => :edit_trip
     get 'destroy_trip' => "trips#destroy_trip", :as => :destroy_trip
     get 'stop_tracking_trip' => "trips#stop_tracking_trip", :as => :stop_tracking_trip

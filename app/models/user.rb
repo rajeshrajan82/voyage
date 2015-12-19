@@ -52,7 +52,7 @@ class User < ActiveRecord::Base
   end
 
   def get_active_vehicles
-    vehicles.where(:status => true)
+    vehicles.where(:status => true, :delete_status => false)
   end
 
   def get_active_routes
