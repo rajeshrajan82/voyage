@@ -15,7 +15,7 @@ class TrackingController < ApplicationController
     @route = Route.find(params[:rid])
     @trip = @route.fetch_current_trip
     if @trip.nil?
-      render :json => {:status => :error, :message => "Trip not created"}.to_json
+      render :json => {:status => :error, :message => "Trip not created", :track_status => false}.to_json
     else
       render :json => {:status => :ok, :message => "Success", :trip_id => @trip.id, :track_status => @trip.track_status}
     end
